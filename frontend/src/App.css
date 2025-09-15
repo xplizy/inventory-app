@@ -1,0 +1,516 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+h2 {
+  margin-top: 30px;
+  color: #333;
+}
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Kort för artiklar */
+.article-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  font-size: 16px;
+}
+
+.article-card img {
+  width: 50%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.article-card button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #007bff;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+.article-card button:hover {
+  background: #0056b3;
+}
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Själva modalen */
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+  text-align: center;
+}
+
+.modal h2 {
+  margin-bottom: 15px;
+}
+
+.quantity-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.quantity-control button {
+  padding: 5px 12px;
+  font-size: 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.quantity-control button:hover {
+  background: #eee;
+}
+
+.department-list {
+  margin-top: 20px;
+}
+
+.department-list select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: #2c3e50;
+  color: white;
+  padding: 20px;
+}
+
+.sidebar .logo {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.sidebar .logo img {
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar nav ul li {
+  margin: 15px 0;
+}
+
+.sidebar nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.sidebar nav ul li a:hover {
+  text-decoration: underline;
+}
+/* Sidebar login form */
+.sidebar-login-form {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar-login-form input {
+  padding: 6px 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.sidebar-login-form input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 3px rgba(0, 123, 255, 0.4);
+}
+
+.sidebar-login-form button {
+  padding: 6px 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.sidebar-login-form button:hover {
+  background-color: #0056b3;
+}
+
+
+
+/* Main content */
+.main-content {
+  flex: 1;
+  background: #f5f5f5;
+  padding: 20px;
+}
+.empty {
+  color: #888;
+  font-style: italic;
+  margin: 10px 0;
+}
+
+.collapse-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: left;
+  padding: 5px 0;
+}
+
+.sub-menu {
+  margin-left: 15px;
+  list-style: none;
+  padding-left: 0;
+}
+
+.sub-menu li {
+  margin: 5px 0;
+}
+
+.sub-menu a {
+  color: #ddd;
+  text-decoration: none;
+}
+
+.sub-menu a:hover {
+  color: white;
+}
+
+.low-stock {
+  color: red;
+  font-weight: bold;
+}
+
+.low-stock-text {
+  color: red;
+  font-weight: bold;
+}
+
+.qty-btn {
+  width: 30px;
+  height: 30px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.qty-display {
+  margin: 0 10px;
+  font-size: 18px;
+}
+
+.modal-actions {
+  margin-top: 20px;
+}
+
+.confirm-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.logo-title {
+  color: #fff; 
+}
+
+/* --- AddArticle form styling --- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+form h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+/* Input fields */
+form input {
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+/* Placeholder styling */
+form input::placeholder {
+  color: #888;
+  font-style: italic;
+}
+
+/* On focus */
+form input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
+}
+
+/* Button */
+form button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease-in-out;
+}
+
+form button:hover {
+  background: #0056b3;
+}
+
+form button:active {
+  transform: scale(0.97);
+}
+/* Ta bort browserns standard-pilar på number-input */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+/* Quantity-control layout */
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+  justify-content: center;
+}
+
+.quantity-control input {
+  width: 300px;
+  text-align: center;
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* + och - knappar */
+.quantity-control button {
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.quantity-control button:hover:not(:disabled) {
+  background: #0056b3;
+}
+
+.quantity-control button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.article-list-container {
+  max-width: 400px;
+  margin: 20px auto;
+  text-align: left;
+}
+
+.toggle-list-btn {
+  width: 100%;
+  padding: 10px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.toggle-list-btn:hover {
+  background: #218838;
+}
+
+.article-list {
+  list-style: none;
+  padding-left: 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.article-list li {
+  padding: 8px 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.article-list li:last-child {
+  border-bottom: none;
+}
+
+.admin-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.3s ease, transform 0.1s ease-in-out;
+}
+
+.admin-btn:hover {
+  background: #218838; /* mörkare grön vid hover */
+  transform: scale(1.02);
+}
+
+.admin-btn:active {
+  transform: scale(0.98);
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+/* --- ArticleCard Admin Buttons --- */
+.article-card .restock-btn {
+  margin-left: 5px;
+  margin-top: 5px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.article-card .restock-btn:hover {
+  background-color: #218838;
+}
+
+.article-card .save-btn {
+  margin-left: 5px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.article-card .save-btn:hover {
+  background-color: #0056b3;
+}
+
+.article-card .delete-btn {
+  margin-left: 5px;
+  margin-top: 5px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.article-card .delete-btn:hover {
+  background-color: #c82333;
+}
+
+.article-card .restock-input-container input {
+  width: 60px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
